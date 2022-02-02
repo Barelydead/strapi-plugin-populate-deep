@@ -1,13 +1,21 @@
 # Strapi plugin populate-deep
 This plugin allows for easier population of deep content structures using the rest API.
 
-# Examples
+# Usages
 
 Populate a request with the default max depth.
+
 `/api/articles?populate=deep`
 
 Populate a request with the a custom depth
+
 `/api/articles?populate=deep,10`
+
+Populate a request with the a custom depth
+
+`/api/articles/1?populate=deep,10`
+
+The populate deep option is available for all models using the findOne and findMany methods.
 
 # Installation
 
