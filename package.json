@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-populate-deep",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This is the description of the plugin.",
   "strapi": {
     "name": "strapi-plugin-populate-deep",
