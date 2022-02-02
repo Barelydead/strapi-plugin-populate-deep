@@ -3,6 +3,8 @@ This plugin allows for easier population of deep content structures using the re
 
 # Usages
 
+## Examples
+
 Populate a request with the default max depth.
 
 `/api/articles?populate=deep`
@@ -15,7 +17,12 @@ Populate a request with the a custom depth
 
 `/api/articles/1?populate=deep,10`
 
+## Good to know
+
+The default max depth is 5 levels deep.
+
 The populate deep option is available for all collections and single types using the findOne and findMany methods.
+
 
 # Installation
 
