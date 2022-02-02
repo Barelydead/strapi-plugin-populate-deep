@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "This is the description of the plugin.",
   "strapi": {
-    "name": "Populate deep",
+    "name": "strapi-plugin-populate-deep",
     "description": "Api helper to populate deep content structures.",
     "kind": "plugin"
   },
@@ -16,6 +16,10 @@
       "name": "Christofer Jungberg"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Barelydead/strapi-plugin-deep-populate"
+  },
   "engines": {
     "node": ">=12.x. <=16.x.x",
     "npm": ">=6.0.0"
