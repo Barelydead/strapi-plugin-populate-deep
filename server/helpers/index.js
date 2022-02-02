@@ -46,3 +46,7 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
   }
   return isEmpty(populate) ? true : { populate };
 };
+
+module.exports = {
+  getFullPopulateObject
+}
