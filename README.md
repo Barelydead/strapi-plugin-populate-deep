@@ -26,9 +26,9 @@ The populate deep option is available for all collections and single types using
 
 # Installation
 
-`npm install strapi-plugin-deep-populate`
+`npm install strapi-plugin-populate-deep`
 
-`yarn add strapi-plugin-deep-populate`
+`yarn add strapi-plugin-populate-deep`
 
 
 # Contributions
