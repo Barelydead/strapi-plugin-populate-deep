@@ -3,8 +3,9 @@
   "version": "0.1.2",
   "description": "This is the description of the plugin.",
   "strapi": {
+    "displayName": "Populate Deep"
     "name": "strapi-plugin-populate-deep",
-    "description": "Api helper to populate deep content structures.",
+    "description": "API helper to populate deep content structures.",
     "kind": "plugin"
   },
   "dependencies": {},
