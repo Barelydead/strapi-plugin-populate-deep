@@ -9,11 +9,11 @@ const getModelPopulationAttributes = (model) => {
   return model.attributes;
 };
 
-const getFullPopulateObject = (modelUid, maxDepth = 20) => {
+const getFullPopulateObject = (modelUid, maxDepth = 20, populateUserAdmin) => {
   if (maxDepth <= 1) {
     return true;
   }
-  if (modelUid === "admin::user") {
+  if (modelUid === "admin::user" && populateUserAdmin === false) {
     return undefined;
   }
 
@@ -24,17 +24,18 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
   )) {
     if (value) {
       if (value.type === "component") {
-        populate[key] = getFullPopulateObject(value.component, maxDepth - 1);
+        populate[key] = getFullPopulateObject(value.component, maxDepth - 1, populateUserAdmin);
       } else if (value.type === "dynamiczone") {
         const dynamicPopulate = value.components.reduce((prev, cur) => {
-          const curPopulate = getFullPopulateObject(cur, maxDepth - 1);
+          const curPopulate = getFullPopulateObject(cur, maxDepth - 1, populateUserAdmin);
           return curPopulate === true ? prev : merge(prev, curPopulate);
         }, {});
         populate[key] = isEmpty(dynamicPopulate) ? true : dynamicPopulate;
       } else if (value.type === "relation") {
         const relationPopulate = getFullPopulateObject(
           value.target,
-          maxDepth - 1
+          maxDepth - 1,
+          populateUserAdmin
         );
         if (relationPopulate) {
           populate[key] = relationPopulate;
