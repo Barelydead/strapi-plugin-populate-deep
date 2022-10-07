@@ -1,6 +1,6 @@
 {
-  "name": "strapi-plugin-populate-deep",
-  "version": "0.1.2",
+  "name": "strapi-plugin-populate-deep-with-params",
+  "version": "0.1.4",
   "description": "This is the description of the plugin.",
   "strapi": {
     "name": "strapi-plugin-populate-deep",
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Barelydead/strapi-plugin-deep-populate"
+    "url": "https://github.com/jacopobonomi/strapi-plugin-deep-populate"
   },
   "engines": {
     "node": ">=12.x. <=16.x.x",

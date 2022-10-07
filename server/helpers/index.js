@@ -9,7 +9,15 @@ const getModelPopulationAttributes = (model) => {
   return model.attributes;
 };
 
-const getFullPopulateObject = (modelUid, maxDepth = 20) => {
+const getFullPopulateObject = (
+  modelUid,
+  maxDepth = process.env.MAX_POPULATE_DEPTH ?? 20
+) => {
+
+  if (maxDepth > process.env.MAX_POPULATE_DEPTH) {
+    maxDepth = process.env.MAX_POPULATE_DEPTH;
+  }
+  
   if (maxDepth <= 1) {
     return true;
   }
@@ -48,5 +56,5 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
 };
 
 module.exports = {
-  getFullPopulateObject
-}
+  getFullPopulateObject,
+};
