@@ -1,6 +1,13 @@
 # Strapi plugin populate-deep
 This plugin allows for easier population of deep content structures using the rest API.
 
+# Installation
+
+`npm install strapi-plugin-populate-deep`
+
+`yarn add strapi-plugin-populate-deep`
+
+
 # Usages
 
 ## Examples
@@ -23,13 +30,25 @@ The default max depth is 5 levels deep.
 
 The populate deep option is available for all collections and single types using the findOne and findMany methods.
 
+# Configuration
 
-# Installation
+The default depth and behaviour for populating creator fields can be customized via the plugin config. To do so create or edit you plugins.js file.
 
-`npm install strapi-plugin-populate-deep`
+## Example configuration
 
-`yarn add strapi-plugin-populate-deep`
+`config/plugins.js`
 
+```
+module.exports = ({ env }) => ({
+  'populate-deep': {
+    enabled: true,
+    config: {
+      defaultDepth: 3, // Default is 5
+      skipCreatorFields: false, // Default is true
+    }
+  },
+});
+```
 
 # Contributions
 The original idea for getting the populate structure was created by [tomnovotny7](https://github.com/tomnovotny7) and can be found in [this](https://github.com/strapi/strapi/issues/11836) github thread

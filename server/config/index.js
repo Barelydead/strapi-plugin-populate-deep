@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
-  default: {},
-  validator() {},
+  default: {
+    defaultDepth: 5,
+    skipCreatorFields: true,
+  },
+  validator: () => { },
 };
