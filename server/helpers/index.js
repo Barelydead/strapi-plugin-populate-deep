@@ -1,5 +1,7 @@
 const { isEmpty, merge } = require("lodash/fp");
 
+const skipCreatorFields = strapi.plugin('populate-deep')?.config('skipCreatorFields') || true;
+
 const getModelPopulationAttributes = (model) => {
   if (model.uid === "plugin::upload.file") {
     const { related, ...attributes } = model.attributes;
@@ -13,7 +15,7 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
   if (maxDepth <= 1) {
     return true;
   }
-  if (modelUid === "admin::user") {
+  if (modelUid === "admin::user" && skipCreatorFields) {
     return undefined;
   }
 
