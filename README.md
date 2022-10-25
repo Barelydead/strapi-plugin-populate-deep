@@ -32,7 +32,7 @@ The populate deep option is available for all collections and single types using
 
 # Configuration
 
-The default depth and behaviour for populating creator fields can be customized via the plugin config. To do so create or edit you plugins.js file.
+The default depth can be customized via the plugin config. To do so create or edit you plugins.js file.
 
 ## Example configuration
 
@@ -40,11 +40,9 @@ The default depth and behaviour for populating creator fields can be customized 
 
 ```
 module.exports = ({ env }) => ({
-  'populate-deep': {
-    enabled: true,
+  'strapi-plugin-populate-deep': {
     config: {
       defaultDepth: 3, // Default is 5
-      skipCreatorFields: false, // Default is true
     }
   },
 });

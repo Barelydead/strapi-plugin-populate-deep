@@ -1,6 +1,6 @@
 const { isEmpty, merge } = require("lodash/fp");
 
-const skipCreatorFields = strapi.plugin('populate-deep')?.config('skipCreatorFields') || true;
+const skipCreatorFields = strapi.plugin('strapi-plugin-populate-deep')?.config('skipCreatorFields') || true;
 
 const getModelPopulationAttributes = (model) => {
   if (model.uid === "plugin::upload.file") {
