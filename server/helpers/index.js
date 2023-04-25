@@ -30,9 +30,9 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
       } else if (value.type === "dynamiczone") {
         const dynamicPopulate = value.components.reduce((prev, cur) => {
           const curPopulate = getFullPopulateObject(cur, maxDepth - 1);
-          return curPopulate === true ? prev : merge(prev, curPopulate);
+          return curPopulate === true ? prev : merge(prev, {[cur]: curPopulate});
         }, {});
-        populate[key] = isEmpty(dynamicPopulate) ? true : dynamicPopulate;
+        populate[key] = isEmpty(dynamicPopulate) ? true : { on: dynamicPopulate };
       } else if (value.type === "relation") {
         const relationPopulate = getFullPopulateObject(
           value.target,
