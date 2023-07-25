@@ -10,7 +10,7 @@ module.exports = ({ strapi }) => {
 
       if (populate && populate[0] === 'deep') {
         const depth = populate[1] ?? defaultDepth
-        const modelObject = getFullPopulateObject(event.model.uid, depth);
+        const modelObject = getFullPopulateObject(event.model.uid, depth, []);
         event.params.populate = modelObject.populate
       }
     }
