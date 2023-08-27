@@ -1,7 +1,7 @@
 {
   "name": "strapi-plugin-populate-deep",
   "version": "2.0.0",
-  "description": "This is the description of the plugin.",
+  "description": "Strapi plugin that populates nested content.",
   "strapi": {
     "name": "strapi-plugin-populate-deep",
     "description": "Api helper to populate deep content structures.",
@@ -21,7 +21,7 @@
     "url": "https://github.com/Barelydead/strapi-plugin-deep-populate"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=14.19.1 <=20.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
