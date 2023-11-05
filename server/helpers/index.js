@@ -1,4 +1,20 @@
-const { isEmpty, merge } = require("lodash/fp");
+const { isEmpty } = require("lodash/fp");
+
+const deepAssign = (target, source) => {
+    for (const key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        if (typeof source[key] === 'object' && source[key] !== null) {
+          if (!target[key] || typeof target[key] !== 'object' || target[key] === null) {
+            target[key] = source[key];
+          }
+          deepAssign(target[key], source[key]);
+        } else if (!target[key] || typeof target[key] !== 'object' || target[key] === null) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+}
 
 const getModelPopulationAttributes = (model) => {
   if (model.uid === "plugin::upload.file") {
@@ -32,7 +48,7 @@ const getFullPopulateObject = (modelUid, maxDepth = 20, ignore) => {
       } else if (value.type === "dynamiczone") {
         const dynamicPopulate = value.components.reduce((prev, cur) => {
           const curPopulate = getFullPopulateObject(cur, maxDepth - 1);
-          return curPopulate === true ? prev : merge(prev, curPopulate);
+          return curPopulate === true ? prev : deepAssign(prev, curPopulate);
         }, {});
         populate[key] = isEmpty(dynamicPopulate) ? true : dynamicPopulate;
       } else if (value.type === "relation") {
